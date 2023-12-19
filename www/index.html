@@ -64,12 +64,13 @@
 
     function showResults(results) {
       // テーブルのヘッダを生成
-      let msg = "<table><tr><th>name</th><th>SCR</th></tr>";
+      let msg = "<table><tr><th>name</th><th>SCR</th><th>miss</th></tr>";
       for (let i = 0; i < results.length; i++) {
         // 各データを収めた表の列を生成
         msg += "<tr>";
         msg += "<td>" + results[i].name + "</td>";
         msg += "<td class='num'>" + results[i].score + "</td>";
+         msg += "<td class='num'>" + results[i].miss + "</td>";
         msg += "</tr>";
       }
       // テーブルのテイラを生成
@@ -88,6 +89,10 @@
   <div>
     <label for="score">score:</label>
     <input id="score" type="number" placeholder="score">
+  </div>
+   <div>
+    <label for="miss">miss:</label>
+    <input id="miss" type="number" placeholder="miss">
   </div>
   <div id="button">
     <button class="btn" onclick="fetchAll()">Fetch All</button>
