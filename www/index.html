@@ -31,10 +31,10 @@
         })
     }
 
-    function searchLevel() {
+    function searchScore() {
       let TestDataClass = ncmb.DataStore(db);
-      let level = parseInt($("#level").val());
-      TestDataClass.equalTo("level",level).fetchAll()
+      let score = parseInt($("#score").val());
+      TestDataClass.equalTo("score",score).fetchAll()
         .then(function(results) {
           showResults(results);
         })
@@ -42,7 +42,7 @@
 
     function showResults(results) {
       // テーブルのヘッダを生成
-      let msg = "<table><tr><th>name</th><th>Lvl</th><th>attack</th><th>defence</th></tr>";
+      let msg = "<table><tr><th>name</th><th>SCR</th></tr>";
       for (let i = 0; i < results.length; i++) {
         // 各データを収めた表の列を生成
         msg += "<tr>";
@@ -64,16 +64,16 @@
     <input id="name" type="text" placeholder="Subject name">
   </div>
   <div>
-    <label for="level">score:</label>
-    <input id="level" type="number" placeholder="score">
+    <label for="score">score:</label>
+    <input id="score" type="number" placeholder="score">
   </div>
   <div id="button">
     <button class="btn" onclick="fetchAll()">Fetch All</button>
     <button class="btn" onclick="searchName()">name</button>
   </div>
   <div id="button">
-    <button class="btn" onclick="searchLevelLT()">Level &lt;</button>
-    <button class="btn" onclick="searchLevel()">score</button>
+    <button class="btn" onclick="searchScoreLT()">score &lt;</button>
+    <button class="btn" onclick="searchScore()">score</button>
   </div>
   <div id="message">message area</div>
 </body>
